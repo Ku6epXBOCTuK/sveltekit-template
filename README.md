@@ -1,42 +1,52 @@
-# sv
+# SvelteKit Static Template
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Шаблон для разработки статических сайтов на SvelteKit с адаптером static.
 
-## Creating a project
+## Возможности
 
-If you're seeing this, you've probably already done this step. Congrats!
+- **Svelte 5** с Runes
+- **TypeScript** со строгой типизацией
+- **Адаптер static** — для деплоя на любой хостинг
+- **Prettier** — форматирование
+- **ESLint** — линтинг (без console.log, без magic numbers)
+- **Stylelint** — линтинг стилей
+- **Vitest** — юнит-тесты (jsdom + browser)
+- **Playwright** — E2E тесты
+- **CSS Variables Linter** — проверка CSS-переменных
 
-```sh
-# create a new project
-npx sv create my-app
-```
-
-To recreate this project with the same configuration:
-
-```sh
-# recreate this project
-npx sv create --template minimal --types ts --add prettier eslint vitest="usages:unit,component" playwright sveltekit-adapter="adapter:static" mcp="ide:vscode+setup:remote" --install npm ./
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Быстрый старт
 
 ```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+npx degit Ku6epXBOCTuK/sveltekit-template my-site
+cd my-site
+npm install
 ```
 
-## Building
+## Команды
 
-To create a production version of your app:
+| Команда             | Описание                                                        |
+| ------------------- | --------------------------------------------------------------- |
+| `npm run dev`       | Dev-сервер                                                      |
+| `npm run build`     | Сборка в `build/`                                               |
+| `npm run preview`   | Предпросмотр                                                    |
+| `npm run check`     | TypeScript проверка                                             |
+| `npm run check:all` | Full check: format + stylelint + eslint + svelte-check + vitest |
+| `npm run lint`      | Prettier + ESLint                                               |
+| `npm run test`      | Unit + E2E тесты                                                |
+| `npm run test:unit` | Vitest                                                          |
+| `npm run test:e2e`  | Playwright                                                      |
+
+## CSS Variables Linter
+
+Уникальный скрипт `scripts/css-vars.js` проверяет CSS-переменные:
+
+- Ошибка, если переменная используется но не определена
+- Предупреждение, если переменная определена но не используется
 
 ```sh
-npm run build
+npm run lint:css-vars
 ```
 
-You can preview the production build with `npm run preview`.
+## Требования
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Node.js >= 22.0.0

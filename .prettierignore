@@ -7,3 +7,10 @@ bun.lockb
 
 # Miscellaneous
 /static/
+/node_modules/
+/.svelte-kit/
+.gitattributes
+.gitignore
+.npmrc
+.prettierignore
+LICENSE
