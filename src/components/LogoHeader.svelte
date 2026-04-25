@@ -14,15 +14,15 @@
 	}
 
 	.logo {
-		background: #0d0d0d;
+		background: var(--color-code-bg);
 		padding: 1rem;
-		border: 1px solid #333;
+		border: 1px solid var(--color-border);
 		overflow-x: auto;
-		color: #00ff00;
+		color: var(--color-green);
 	}
 
 	.subtitle {
-		color: #666;
+		color: var(--color-subtitle);
 		margin-top: 0.5rem;
 	}
 </style>

@@ -1,11 +1,24 @@
 <script lang="ts">
+	import IconBox from "~icons/lucide/box";
+	import IconCheckCircle from "~icons/lucide/check-circle";
+	import IconFileCode from "~icons/lucide/file-code";
+	import IconFlaskConical from "~icons/lucide/flask-conical";
+	import IconPalette from "~icons/lucide/palette";
+	import IconSparkles from "~icons/lucide/sparkles";
+
+	const ICON_SIZE = 14;
+
 	const features = [
-		{ name: "Svelte 5", desc: "Runes" },
-		{ name: "TypeScript", desc: "strict" },
-		{ name: "Adapter", desc: "static" },
-		{ name: "Linting", desc: "Prettier + ESLint + Stylelint" },
-		{ name: "Testing", desc: "Vitest + Playwright" },
-		{ name: "CSS Vars", desc: "linter" },
+		{ name: "Svelte 5", desc: "Runes", icon: IconSparkles },
+		{ name: "TypeScript", desc: "strict", icon: IconFileCode },
+		{ name: "Adapter", desc: "static", icon: IconBox },
+		{
+			name: "Linting",
+			desc: "Prettier + ESLint + Stylelint",
+			icon: IconCheckCircle,
+		},
+		{ name: "Testing", desc: "Vitest + Playwright", icon: IconFlaskConical },
+		{ name: "CSS Vars", desc: "linter", icon: IconPalette },
 	];
 </script>
 
@@ -14,7 +27,9 @@
 	<ul class="features">
 		{#each features as f (f.name)}
 			<li>
-				<span class="name">{f.name}</span> <span class="desc">{f.desc}</span>
+				<span class="icon"><f.icon size={ICON_SIZE} /></span>
+				<span class="name">{f.name}</span>
+				<span class="desc">{f.desc}</span>
 			</li>
 		{/each}
 	</ul>
@@ -27,7 +42,7 @@
 
 	h2 {
 		font-size: 1rem;
-		color: #00ff00;
+		color: var(--color-green);
 		margin-bottom: 0.5rem;
 		font-weight: normal;
 	}
@@ -40,13 +55,21 @@
 
 	.features li {
 		padding: 0.25rem 0;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
 	}
 
-	.features .name {
-		color: #ff79c6;
+	.icon {
+		color: var(--color-comment);
+		display: flex;
 	}
 
-	.features .desc {
-		color: #6272a4;
+	.name {
+		color: var(--color-pink);
+	}
+
+	.desc {
+		color: var(--color-comment);
 	}
 </style>

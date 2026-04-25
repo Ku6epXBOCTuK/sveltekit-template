@@ -6,7 +6,7 @@
 	footer {
 		margin-top: 2rem;
 		padding-top: 1rem;
-		border-top: 1px solid #333;
-		color: #6272a4;
+		border-top: 1px solid var(--color-border);
+		color: var(--color-comment);
 	}
 </style>
